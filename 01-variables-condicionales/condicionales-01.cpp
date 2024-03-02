@@ -7,7 +7,7 @@ o si hay saldo en contra y de cuanto, todo al mes
 #include <iostream>
 using namespace std;
 int main(){
-    short gasto, ingreso, balance;
+    float gasto, ingreso, balance;
     cout << "Ingresa el gasto del mes: ";
     cin >> gasto;
     cout << "Ingresa el ingreso del mes: ";

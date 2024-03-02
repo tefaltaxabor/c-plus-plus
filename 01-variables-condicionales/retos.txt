@@ -1,0 +1,22 @@
+1. Dados los coeficientes de una ecuacion cuadratica ingresdos por el usuario (a, b, c)
+devuelve los siguiente:
+- Si tiene solucion en los reales (discriminantes es >= 0) y muestra cuales son
+Ejemplo: x1 = 1.00, x2 = 2.00
+- No tienes solucion en los reales (discriminantes es < 0)
+ax**2 + b*x + c = 0
+discriminantes: d = b**2 - 4*a*c
+(*) Crear las variables intermedias que sea necesarias
+(*) Usar 2 decimales para la precision
+
+2. Dado el valor de un angulo en sexagesimales, devuelve por consola lo siguiente:
+- El valor en radianes
+- El valor en centesimales
+
+Considera: 1 sexagesimal <> pi/180 radianes <> 10/9 centesimales
+Ejemplo:
+25 sexagesiamles (ingresa)
+25*(pi/180) radianes
+25*(10/9) centesimales
+
+(*) Considera Pi + 3.14
+(*) Usar 2 decimales para la precision
