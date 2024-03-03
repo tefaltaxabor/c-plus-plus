@@ -1,0 +1,32 @@
+
+1. Imprimir la siguiente figura dadno un n ingreso por el usuario que debe ser positivo e impar
+n = 3
+ *
+***
+ *
+ *
+n = 5
+  *
+ ***
+*****
+  *
+  *
+  *
+
+2. Imprimir dado un n positivo
+n = 5
+12345
+2   4
+3   3
+4   2
+54321
+
+3. Imprimir dado un n positivo e impar ingreso por el usuario
+n = 7
+#######
+     #
+    #
+   #
+  #
+ #
+#######
