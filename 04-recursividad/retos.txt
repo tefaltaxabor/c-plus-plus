@@ -1,0 +1,8 @@
+1. Implementar una funcion recursiva que calcule
+el producto de dos numeros enteros positivos.
+Con validacion de datos
+2. Implementar una solucion recursiva que muestre los primeros
+n numeros de fibonacci. Siendo n >= 1
+
+
+
