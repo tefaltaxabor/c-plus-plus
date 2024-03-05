@@ -16,12 +16,18 @@ do {
 void escribir_n(int n) // Paso de parametro por valor
 
 {
-    for (int i = 1; i <= n; i++) {
-        cout << i;
+    for (int f = 1; f <= n; f++) 
+    {
+        for(int c=1; c<= n; c++){
+            if(f==1 || f==n || f==c || f+c==n+1){
+                cout << c;
+            }else{
+                cout << " ";
+            }
+            
+        }
+        cout << endl;
     }
-    cout << endl;
-    for ( int )
-
 }
 
 int main(  ) 

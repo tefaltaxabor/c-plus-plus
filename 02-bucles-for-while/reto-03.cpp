@@ -4,10 +4,12 @@ using namespace std;
 
 int main() {
     int n;
-    do {
+    do 
+    {
         cout << "Ingrese un numero positivo: ";
         cin >> n;
-        if (!(n > 0)) {
+        if (!(n > 0)) 
+        {
             cout << "Ingrese un numero positivo." << endl;
         }
     } while (!(n > 0));
