@@ -21,7 +21,6 @@ int multiplicacion_recursiva(int a, int b)
     if (b == 1 )
     {
         return a;
-
     }
     else
     {
@@ -32,7 +31,7 @@ int main()
 {  
     int a, b;
     validacion_de_datos(a, b);
-    cout <<  "a x b : " <<  multiplicacion_recursiva(a,b) <<  endl;
+    cout <<  "a x b = " <<  multiplicacion_recursiva(a,b) <<  endl;
     
     return 0;
     

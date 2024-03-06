@@ -1,0 +1,5 @@
+1. Crear una calculadora que haga uso de funciones (sumar, restar, multiplicar y dividir),
+y tenga un menu que permita acceder a alguna de esas opciones.
+En cada opcion se debe ingresar los valores
+Las funciones reciben parametros por referencia y dentro se deben hacer los calculos usando
+punteros a dichas idrecciones y devolver el valor correspondiente, usando punteros tambi[en]

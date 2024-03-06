@@ -1,0 +1,7 @@
+1. Dada dos matrices A y B de tamanho nxn, siendo n ingreso por el usuario
+y los valores de las matrices generados aleatoriamente con datos del 0 al 10
+mostrar:
+- Las matrices generadas A, B
+- La suma de A y B
+- La resta A-B
+- El producto de A*B (Producto matricial: filas por columnas)
