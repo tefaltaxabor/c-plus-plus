@@ -29,8 +29,8 @@ int main(){
     // Arreglos 2d enteros
     cout << "Matriz de enteros entre 0 y 20" << endl;
     srand(time(NULL)); // Reiniciar la semilla aleatoria
-    int arr3[4][3];
-    int min = 0, max = 20;
+    int arr3[4][3];// Matriz 4 x 4 
+    int min = 0, max = 20; // "limites"
     for(int i=0; i<4; i++){
         for(int j=0; j<3; j++){
             arr2[i][j] = rand()%(max-min+1) + min;
