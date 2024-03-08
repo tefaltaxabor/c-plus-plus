@@ -1,0 +1,2 @@
+Desarrollar el reto ranterior de matrices, pero usando arreglos dinamicos (matrices dinamicas)
++,-,*

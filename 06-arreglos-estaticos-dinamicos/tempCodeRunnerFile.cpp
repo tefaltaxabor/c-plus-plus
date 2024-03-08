@@ -1,3 +1,1 @@
-for(int i=0; i<5; i++){
-        arr1[i] = i*i;
-    }
+void Suma_de_Matrices(int Matriz_A[][MAX], int Matriz_B[][MAX], int n, int Matriz_E[][MAX])

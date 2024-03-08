@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
+using namespace std;
+
+struct Punto3D{
+    float x;
+    float y;
+    float z;
+};
+
+struct Punto3D generar_punto(){
+    struct Punto3D p;
+    int min = -10, max = 10;
+    p.x = rand()%(max-min+1)+min;
+    p.y = rand()%(max-min+1)+min;
+    p.z = rand()%(max-min+1)+min;
+    return p;
+}
+
+void mostrar_punto(struct Punto3D p){
+    cout << "(" << p.x << ", " << p.y << ", " << p.z << ")"<< endl;
+}
+
+struct Punto3D* generar_puntos(int n){
+    struct Punto3D* puntos;
+    puntos = new struct Punto3D[n];
+    for(int i=0; i<n; i++){
+        puntos[i] = generar_punto();
+    }
+}
+
+float calcular_distancia(struct Punto3D p1, struct Punto3D p2){
+    float d;
+    d = sqrt(pow(p1.x-p2.x, 2)+pow(p1.y-p2.y, 2)+pow(p1.z-p2.z, 2));
+    return d;
+}
+
+int main(){
+    struct Punto3D p1;
+    struct Punto3D p2;
+    int n = 2;
+    p1 = generar_punto();
+    p2 = generar_punto();
+    cout << "p1 = "; mostrar_punto(p1);
+    cout << "p2 = "; mostrar_punto(p2);
+    cout << "Distancia en tre p1 y p2 = " << calcular_distancia(p1, p2);
+    return 0;
+}

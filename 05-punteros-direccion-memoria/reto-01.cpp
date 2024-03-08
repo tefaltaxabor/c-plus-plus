@@ -2,51 +2,59 @@
 
 using namespace std;
 
-void verificacion_de_datos(int (*ptr_a) , int (*ptr_b))
+void verificacion_de_datos(int &a , int &b)
 {
     do
     {
 
-    cout << "Ingresar a = "; cin >> (*ptr_a);
-    cout << "Ingresar b = "; cin >> (*ptr_a);
-    if (!((*ptr_a) > 0 || (*ptr_a) > 0)) 
+    cout << "Ingresar a = "; cin >> a;
+    cout << "Ingresar b = "; cin >> b;
+    if (!(a > 0 || b > 0)) 
     {
         cout<< "Solo numero enteros " <<endl;
     }
     }
-    while (!((*ptr_a) > 0 && (*ptr_b) > 0));
+    while (!(a > 0 && b > 0));
 }
-int suma (int (*ptr_a) , int (*ptr_b));
-int suma (int (*ptr_a) , int (*ptr_b))
-{
-    return (*ptr_a) + (*ptr_b);
-}
+int suma (int &a , int &b);
 int resta (int (*ptr_a) , int (*ptr_b));
-int resta (int (*ptr_a) , int (*ptr_b))
+int multiplicacion(int (*ptr_a) , int (*ptr_b));
+int division(int (*ptr_a) , int (*ptr_b));
+
+int suma (int &a , int &b)
 {
+    int* ptr_a = &a;
+    int* ptr_b = &b;
+    int s = (*ptr_a) + (*ptr_b);
+    return s;
+}
+int resta (int &a , int &b)
+{
+    int (*ptr_a) = &a;
+    int (*ptr_b) = &b;
     return (*ptr_a) - (*ptr_b);
 }
-int multiplicacion(int (*ptr_a) , int (*ptr_b));
-int multiplicacion(int (*ptr_a) , int (*ptr_b))
+int multiplicacion(int &a , int &b)
 {
-    return (*ptr_a) * (*ptr_b);
+    int (*ptr_a) = &a;
+    int (*ptr_b) = &b;
+    int m = (*ptr_a) * (*ptr_b);
+    return m;
 }
-int division(int (*ptr_a) , int (*ptr_b));
-int division(int (*ptr_a) , int (*ptr_b))
-
+int division(int &a , int &b)
 {
-    return (*ptr_a) / (*ptr_b);
+    int (*ptr_a) = &a;
+    int (*ptr_b) = &b;
+    int d = (*ptr_a) / (*ptr_b);
+    return d;
 }
 int main()
 {   
     
     int a, b;
     char c;
-    int* ptr_a;
-    int* ptr_b;
-    ptr_a = &a;
-    ptr_b = &b;
-    verificacion_de_datos(ptr_a, ptr_b);
+    
+    verificacion_de_datos(a, b);
     
     cout<< "Calculadora" <<endl;
     cout<< "a) Suma " << endl;
@@ -60,16 +68,16 @@ int main()
             switch (c)
             {
             case 'a':
-                cout << "Suma = " << suma(ptr_a , ptr_b)<<endl;
+                cout << "Suma = " << suma(a , b)<<endl;
                 break;
             case 'b':
-                cout << "Resta = " << resta(ptr_a , ptr_b)<<endl;
+                cout << "Resta = " << resta(a,b)<<endl;
                 break;
             case 'c':
-                cout << "Mulplicacion  = " << multiplicacion(ptr_a , ptr_b)<<endl;
+                cout << "Mulplicacion  = " << multiplicacion(a ,b)<<endl;
                 break;
             case 'd':
-                cout << "Division = " << division(ptr_a , ptr_b)<<endl;
+                cout << "Division = " << division(a ,b )<<endl;
                 break;
             case 'e':
                 return 0;

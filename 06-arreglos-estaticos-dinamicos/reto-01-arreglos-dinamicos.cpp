@@ -14,7 +14,13 @@ void recibir_tamaño_de_matriz(int &n) {
     } while (!(n > 0 && n < MAX));   
 }
 
-void generar_Matriz_A(int n, int Matriz_A[][MAX]) {
+int** generar_Matriz_A(int n) {
+    int** Matriz_A;
+    // Dimensionamiento (reserva de espacios de memoria) de la matriz dinamica
+    Matriz_A = new int*[n]; // Por filas
+    for(int i=0; i<n; i++){ // Por fila dimensiono las columnas
+        Matriz_A[i] = new int[n];
+    }
     int min = 0, max = 10; // "limites"
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < n; j++) {
@@ -27,11 +33,17 @@ void generar_Matriz_A(int n, int Matriz_A[][MAX]) {
             cout << Matriz_A[i][j] << "\t";
         }  
         cout << endl;
-    } 
+    }
+    return Matriz_A;
 }
 
-void generar_Matriz_B(int n, int Matriz_B[][MAX]) {
-    
+int** generar_Matriz_B(int n) {
+    int** Matriz_B;
+    // Dimensionamiento (reserva de espacios de memoria) de la matriz dinamica
+    Matriz_B = new int*[n]; // Por filas
+    for(int i=0; i<n; i++){ // Por fila dimensiono las columnas
+        Matriz_B[i] = new int[n];
+    }
     int min = 0, max = 10; // "limites"
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < n; j++) {
@@ -45,9 +57,16 @@ void generar_Matriz_B(int n, int Matriz_B[][MAX]) {
         }  
         cout << endl;
     }
+    return Matriz_B;
 }
 
-void Suma_de_Matrices(int Matriz_A[][MAX], int Matriz_B[][MAX], int n, int Matriz_C[][MAX]) {
+void Suma_de_Matrices(int** Matriz_A, int** Matriz_B, int n) {
+    int** Matriz_C;
+    // Dimensionamiento (reserva de espacios de memoria) de la matriz dinamica
+    Matriz_C = new int*[n]; // Por filas
+    for(int i=0; i<n; i++){ // Por fila dimensiono las columnas
+        Matriz_C[i] = new int[n];
+    }
     for (int i = 0; i < n; i++) {   
         for(int j = 0; j < n; j++) {
             Matriz_C[i][j] = Matriz_A[i][j]  + Matriz_B[i][j];
@@ -108,16 +127,16 @@ void Producto_de_Matrices(int Matriz_A[][MAX], int Matriz_B[][MAX], int n, int M
 int main() {
     srand(time(NULL)); // Reiniciar la semilla aleatoria
     int n;
-    int Matriz_A[MAX][MAX];
-    int Matriz_B[MAX][MAX];
-    int Matriz_C[MAX][MAX];
-    int Matriz_D[MAX][MAX];
-    int Matriz_E[MAX][MAX];
+    int** Matriz_A;
+    int** Matriz_B;
+    //int Matriz_C[MAX][MAX];
+    //int Matriz_D[MAX][MAX];
+    //int Matriz_E[MAX][MAX];
     recibir_tamaño_de_matriz(n);
-    generar_Matriz_A(n, Matriz_A);
-    generar_Matriz_B(n, Matriz_B);
-    Suma_de_Matrices(Matriz_A, Matriz_B, n, Matriz_C); // Se pasan los cuatro parámetros requeridos.
-    Resta_de_Matrices(Matriz_A, Matriz_B, n , Matriz_E);
-    Producto_de_Matrices(Matriz_A, Matriz_B , n , Matriz_D);
+    Matriz_A = generar_Matriz_A(n);
+    Matriz_B = generar_Matriz_B(n);
+    Suma_de_Matrices(Matriz_A, Matriz_B, n); // Se pasan los cuatro parámetros requeridos.
+    //Resta_de_Matrices(Matriz_A, Matriz_B, n , Matriz_E);
+    //Producto_de_Matrices(Matriz_A, Matriz_B , n , Matriz_D);
     return 0;
 }
