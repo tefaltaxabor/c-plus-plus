@@ -81,7 +81,13 @@ void Suma_de_Matrices(int** Matriz_A, int** Matriz_B, int n) {
     }
 }
 
-void Resta_de_Matrices(int Matriz_A[][MAX], int Matriz_B[][MAX], int n, int Matriz_E[][MAX]) {
+void Resta_de_Matrices(int** Matriz_A, int** Matriz_B, int n) {
+    int** Matriz_E;
+    // Dimensionamiento (reserva de espacios de memoria) de la matriz dinamica
+    Matriz_E = new int*[n]; // Por filas
+    for(int i=0; i<n; i++){ // Por fila dimensiono las columnas
+        Matriz_E[i] = new int[n];
+    }
     for (int i = 0; i < n; i++) {   
         for(int j = 0; j < n; j++) {
             Matriz_E[i][j] = Matriz_A[i][j]  - Matriz_B[i][j];
@@ -95,7 +101,13 @@ void Resta_de_Matrices(int Matriz_A[][MAX], int Matriz_B[][MAX], int n, int Matr
         cout << endl;
     }
 }
-void Producto_de_Matrices(int Matriz_A[][MAX], int Matriz_B[][MAX], int n, int Matriz_D[][MAX]) {
+void Producto_de_Matrices(int** Matriz_A, int** Matriz_B, int n) {
+    int** Matriz_D;
+    // Dimensionamiento (reserva de espacios de memoria) de la matriz dinamica
+    Matriz_D = new int*[n]; // Por filas
+    for(int i=0; i<n; i++){ // Por fila dimensiono las columnas
+        Matriz_D[i] = new int[n];
+    }
     for (int i = 0; i < n; i++) {   
         for(int j = 0; j < n; j++) {
             for(int k = 0; k < n; k++){}
@@ -129,14 +141,11 @@ int main() {
     int n;
     int** Matriz_A;
     int** Matriz_B;
-    //int Matriz_C[MAX][MAX];
-    //int Matriz_D[MAX][MAX];
-    //int Matriz_E[MAX][MAX];
     recibir_tamaño_de_matriz(n);
     Matriz_A = generar_Matriz_A(n);
     Matriz_B = generar_Matriz_B(n);
     Suma_de_Matrices(Matriz_A, Matriz_B, n); // Se pasan los cuatro parámetros requeridos.
-    //Resta_de_Matrices(Matriz_A, Matriz_B, n , Matriz_E);
-    //Producto_de_Matrices(Matriz_A, Matriz_B , n , Matriz_D);
+    Resta_de_Matrices(Matriz_A, Matriz_B, n );
+    Producto_de_Matrices(Matriz_A, Matriz_B , n );
     return 0;
 }

@@ -1,0 +1,2 @@
+1. Calcular el punto medio entre dos puntos (ingresados a una funcion)
+2. Generar la funcion que corresponda para calcular el centroide de un conjunto de punto

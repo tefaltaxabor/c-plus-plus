@@ -36,14 +36,29 @@ float calcular_distancia(struct Punto3D p1, struct Punto3D p2){
     return d;
 }
 
+struct Punto3D* punto_medio(struct Punto3D p1 , struct Punto3D p2)
+{
+    struct Punto3D* punto_medio = new struct Punto3D;
+    punto_medio->x = (p1.x + p2.x) / 2.0;
+    punto_medio->y = (p1.y + p2.y) / 2.0;
+    punto_medio->z = (p1.z + p2.z) / 2.0;
+    return punto_medio;
+}
+
 int main(){
     struct Punto3D p1;
     struct Punto3D p2;
+    struct Punto3D* p3;
     int n = 2;
     p1 = generar_punto();
     p2 = generar_punto();
+    
     cout << "p1 = "; mostrar_punto(p1);
     cout << "p2 = "; mostrar_punto(p2);
-    cout << "Distancia en tre p1 y p2 = " << calcular_distancia(p1, p2);
+    cout << "Distancia entre p1 y p2 = " << calcular_distancia(p1, p2) << endl;
+    p3 = punto_medio(p1,p2);
+    cout << "Punto medio entre p1 y p2 = "; mostrar_punto(*p3);
+    
+
     return 0;
 }
