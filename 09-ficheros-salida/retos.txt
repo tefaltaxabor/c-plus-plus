@@ -1,0 +1,10 @@
+1. Se tienen datos de resistencias en Ohm
+nombre circuito,r1,r2,r3
+Circuito A,3,4,6
+Circuito B,4,5,6
+Circuito C,5,6,7
+
+- Generar un fichero en el que figure la resistencia equivalente
+considerando las resistencias ubicadas en serie
+- Generar un fichero, ahora considerando las resistencias en paralelo
+por cada circuito

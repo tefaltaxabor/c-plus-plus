@@ -1,0 +1,2 @@
+1. Crea un archivo o fichero txt con 6 notas enteras del 0 al 20
+y mostrar por pantallas el promedio de los datos del fichero

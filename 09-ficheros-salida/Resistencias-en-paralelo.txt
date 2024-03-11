@@ -1,0 +1,4 @@
+Nombres del Circuito,Resistencia Total
+Circuito A,1.33333
+Circuito B,1.62162
+Circuito C,1.96262

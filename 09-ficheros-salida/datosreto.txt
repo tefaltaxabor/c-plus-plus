@@ -1,0 +1,4 @@
+nombre circuito,r1,r2,r3
+Circuito A,3,4,6
+Circuito B,4,5,6
+Circuito C,5,6,7

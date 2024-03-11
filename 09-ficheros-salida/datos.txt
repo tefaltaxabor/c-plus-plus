@@ -1,0 +1,4 @@
+apellidos,nombres,sueldo,consultoria,regalias
+Ruiz Perez,Jose,0,3500.20.310,900.50
+Gomez Suarez,Ana,7500,10.90,0
+Morales Ruiz,Pedro,5500,1000,8756.20

@@ -1,0 +1,4 @@
+Nombres completos,Ingresos totales
+Jose Ruiz Perez,4400.7
+Ana Gomez Suarez,7510.9
+Pedro Morales Ruiz,15256.2
