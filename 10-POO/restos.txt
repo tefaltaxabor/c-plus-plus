@@ -1,0 +1,2 @@
+1. Crear una clase Punto3D y usarla para calcular el modulo de la misma y mostrarlo en pantalla
+2. Crear una clase persona que tenga dos atributos: nombre y fecha de nacimiento. Mostrar por pantalla cuantos anhos cumple este 2024

@@ -21,8 +21,8 @@ class Punto2D{
         ~Punto2D(){}
         // Setter y getter
         // Metodos set
-        void setX(int x){  this->x = x; }
-        void setY(int y){ this->y = y; }
+        void setX(double x){  this->x = x; }
+        void setY(double y){ this->y = y; }
         // Metodos get
         double getX(){ return this->x; }
         double getY(){ return this->y; }
