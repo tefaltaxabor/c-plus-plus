@@ -1,76 +1,75 @@
 #include<iostream>
-
+/*
+    Se puede poner tmb como dos atributos pero estoy mas familiarizado con el dia mes y año
+    ,ya que podemos tratar a la fecha de nacimiento como un vector de 3 dimensiones
+    asi, creo que para poder hacerlo solo con dos atributos seria con tratarlo como
+    un pf es el año 2024 (0 , 0 , 2024) y la fecha ( ** , ** , ****) y para obtener 
+    la edad seria 2024 - ****, lo mas importante es el año
+*/
 using namespace std;
-class Datos_Persona
+class Fecha
 {
     private: 
-        /*
-        Se puede poner tmb como dos atributos pero estoy mas familiarizado con el dia mes y año
-        ,ya que podemos tratar a la fecha de nacimiento como un vector de 3 dimensiones
-        asi, creo que para poder hacerlo solo con dos atributos seria con tratarlo como
-        un pf es el año 2024 (0 , 0 , 2024) y la fecha ( ** , ** , ****) y para obtener 
-        la edad seria 2024 - ****, lo mas importante es el año
-        */
-        string nombre;
-        string apellido;
+
         int dia;
         int mes;
-        int año;
+        int anho;
     public:
-        Datos_Persona(){}; //metodo vacio
-        Datos_Persona(string nombre, string apellido , int dia , int mes , int año)
+        Fecha(){}; //metodo vacio
+        Fecha(int dia , int mes , int anho)
         {
-            this->nombre = nombre;
-            this->apellido = apellido;
+            
             this->dia = dia;
             this->mes = mes;
-            this->año = año;
+            this->anho = anho;
         }
-        ~Datos_Persona(){}
+        ~Fecha(){}
         //Setter y Getter
-        void setNombre(string nombre){this->nombre = nombre;}
-        void setApellido(string apellido){this->apellido = apellido;}
+        
         void setDia(int dia){this->dia = dia;}
         void setMes(int mes){this->mes = mes;}
-        void setAño(int año){this->año = año;}
-        string getNombre(){return this->nombre;}
-        string getApellido(){return this->apellido;}
+        void setAnho(int anho){this->anho = anho;}
         int getDia(){return this->dia;}
         int getMes(){return this->mes;}
-        int getAño(){return this->año;}
+        int getAnho(){return this->anho;}
         //Metodo ah doc
-        int calcular_edad1()
+        int calcularAnhosTranscurridos(int anhoActual)
         {
-            return 2024 - this->año;
+            return anhoActual - this->anho;
         }
 };
 class Persona
 {
     private:
-        Datos_Persona Nombre_completo;
-        Datos_Persona Fecha_de_Nacimiento;
-        int calcular_edad;
+        string nombre;
+        string apellido;
+        Fecha fechaNacimiento; // Se almacena
+        int edad;  // Se genera cada que se realiza la consulta
     public:
-        Persona(Datos_Persona Nombre_completo , Datos_Persona Fecha_de_Nacimiento)
+        Persona(string nombre, string apellido, Fecha fechaNacimiento)
         {
-            this->Nombre_completo = Nombre_completo;
-            this->Fecha_de_Nacimiento = Fecha_de_Nacimiento;
+            this->nombre = nombre;
+            this->apellido = apellido;
+            this->fechaNacimiento = fechaNacimiento;
         }
         ~Persona(){};
-        void setNombre_completo(Datos_Persona Nombre_completo){this->Nombre_completo = Nombre_completo;}
-        void setFecha_de_Nacimiento(Datos_Persona Fecha_de_Nacimiento){this->Fecha_de_Nacimiento = Fecha_de_Nacimiento;}
-        void setCalcular_edad(){this->calcular_edad = Fecha_de_Nacimiento.calcular_edad1();}
-        int getCalcular_edad()
+        void setNombre(string nombre){this->nombre = nombre;}
+        void setApellido(string apellido){this->apellido = apellido;}
+        void setFechaNacimiento(Fecha fechaNacimiento){this->fechaNacimiento = fechaNacimiento;}
+        void setEdad(int anhoActual){this->edad = this->fechaNacimiento.calcularAnhosTranscurridos(anhoActual);}
+        string getNombre(){return this->nombre;}
+        string getApellido(){return this->apellido;}
+        int getEdad(int anhoActual)
         {
-        return this->calcular_edad;
+            this->setEdad(anhoActual); // Primero se setea respecto al anho proporcionado
+            return this->edad; // Una vez actualizado el valor, se retorna
         }
 };
 int main()
 {
-    Datos_Persona nombre_completo("Gabriel", "Cabrera", 27, 9, 2004);
-    Datos_Persona fecha_nacimiento("", "", 27, 9, 2004); 
-    Persona person(nombre_completo, fecha_nacimiento);
-    person.setCalcular_edad();
-    cout << "Edad: " << person.getCalcular_edad() << endl;
+    int anhoActual = 2024;
+    Fecha fechaNacimiento(27, 9, 2004);
+    Persona persona1("Gabriel", "Cabrera", fechaNacimiento);
+    cout << "Edad: " << persona1.getEdad(anhoActual) << endl;
     return 0;
 }
