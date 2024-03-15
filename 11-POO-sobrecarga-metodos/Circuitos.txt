@@ -1,4 +1,3 @@
-CircuitoA(3,4,6)13 (en serie), 1.33333 (en paralelo)
-CircuitoB(4,5,6)15 (en serie), 1.62162 (en paralelo)
-CircuitoC(5,6,7)18 (en serie), 1.96262 (en paralelo)
-
+A,3,4,6
+B,4,5,6
+C,5,6,7
