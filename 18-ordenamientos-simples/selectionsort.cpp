@@ -4,13 +4,13 @@
 using namespace std;
 
 template <typename T>
-void selection_sort(vector<T> &v){
+void selection_sort(vector<T> &v, function<bool(T, T)> cmp){
     int n = v.size();
     for(int i = 0; i < n; i++){
         int min_index = i;
         // Busqueda del menor entre las posiciones i y n-1
         for(int j = i+1; j < n; j++){
-            if(v[j] < v[min_index]){
+            if(cmp(v[j], v[min_index]) == true){ // if(v[j] < v[min_index]){
                 min_index = j;
             }
         }
@@ -39,7 +39,9 @@ int main(){
         else return false;
     };
     imprimir(v);
-    selection_sort<int>(v);
+    //selection_sort<int>(v);
+    //selection_sort<int>(v, cmp_asc);
+    selection_sort<int>(v, cmp_desc);
     imprimir(v);
     return 0;
 }
