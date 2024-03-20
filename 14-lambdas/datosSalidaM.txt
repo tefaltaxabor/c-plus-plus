@@ -1,0 +1,2 @@
+nombre,sexo,saldo
+Maria,F,7200

@@ -1,0 +1,3 @@
+Nombre,Sexo,Saldo
+Jose,M,5800
+Maria,F,7200

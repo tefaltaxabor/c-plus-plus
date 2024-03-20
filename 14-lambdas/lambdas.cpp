@@ -44,7 +44,12 @@ int main(){
     v.push_back(9);
     v.push_back(10);
     
-    //mostrar_segun_criterio(v, criterioParidad);
+    // mostrar_segun_criterio(v, criterioParidad);
     mostrar_segun_criterio(v, criterioDivisibilidadPor5);
     return 0;
 }
+
+//Crear una aplicaicon que permita leer datos de una archivo> nombre,sexo,saldo
+//Jose,M,5800
+//Ana,F,7200
+//Y usando funciones lambda cree un archivo con los datos de varones y otro con los de mujeres
