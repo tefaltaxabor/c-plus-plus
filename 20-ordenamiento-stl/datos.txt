@@ -1,0 +1,5 @@
+nombre,dni,saldo,genero
+Jorge,78945612,5800,M
+Laura,45678912,3900,F
+Pedro,15986248,5500,M
+Sofia,78958462,3000,F

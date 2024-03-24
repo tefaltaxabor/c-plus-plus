@@ -27,7 +27,7 @@ void merge(vector<T> &v, int l, int m, int r, function<bool(T, T)> cmp){
 
     // Buscando valores menores para asignarlos a v
     while(i<n1 && j<n2){
-        if(cmp(vl[i], vr[j]) == true){ // if(vl[i] <= vr[j]){
+        if(cmp(vl[i], vr[j]) == true){ // if(vl[i] <= vr[j]){ // Comparacion
             v[k] = vl[i];
             i++;
         }else{
@@ -70,14 +70,17 @@ void imprimir(vector<int> v){
 
 int main(){
     vector<int> v = {9,5,1,4,6,2,8,7,3};
+
     auto cmp_asc = [](int n1, int n2){
         if(n1 <= n2) return true;
         else return false;
     };
+
     auto cmp_desc = [](int n1, int n2){
         if(n1 >= n2) return true;
         else return false;
     };
+    
     imprimir(v);
     //merge_sort<int>(v, 0, v.size()-1);
     //merge_sort<int>(v, 0, v.size()-1, cmp_asc);
