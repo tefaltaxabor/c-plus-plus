@@ -110,3 +110,25 @@ class App{
         }
 
 };
+
+// Tarea
+// Separar los h file de los hpp
+/*
+SLL.hpp
+// Solo la clase se queda en el h file
+template<T>
+class SLL{
+
+}
+
+// Las implemnentaciones de los metodos de clase, va
+// a un archivo SLL.cpp
+template<T>
+SLL::SSL(){
+
+}
+
+template<T>
+SLL::search()
+
+*/
