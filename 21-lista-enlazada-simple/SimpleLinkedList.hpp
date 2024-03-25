@@ -1,4 +1,5 @@
 #include <iostream>
+#include <functional>
 using namespace std;
 
 template <class T>
@@ -11,9 +12,9 @@ class NodeSLL{
             this->next = NULL;
         }
 
-        NodeSLL(T data){
+        NodeSLL(T data, NodeSLL* next = NULL){
             this->data = data;
-            this->next = NULL;
+            this->next = next;
         }
 };
 
@@ -21,34 +22,56 @@ template <class T>
 class SimpleLinkedList{
     private:
         NodeSLL<T>* head;
+        int length;
+        
     public:
         SimpleLinkedList(){
             this->head = NULL;
+            this->length = 0;
+            
         }
 
-        void insert(T data);
+        void insertHead(T data);
+        void insertPos(T data, int pos);
+        void insertEnd(T data);
+        T getByPos(int pos);
         void print();
+        int getLength();
+        int search(T d, function<int(T, T)> cmp);
         //void delete();
 };
 
 template <class T>
-void SimpleLinkedList<T>::insert(T data){
-    // Creando nuevo nodo
-    NodeSLL<T>* newNode = new NodeSLL<T>(data);
+void SimpleLinkedList<T>::insertHead(T data){
+    // Creando nuevo nodo cuyo next sea el head
+    NodeSLL<T>* newNode = new NodeSLL<T>(data, this->head);
+    // Se agrega el nuevo nodo al inicio
+    this->head = newNode;
+    this->length++;
+    return; // Finaliza la ejecucion del metodo
+}
 
-    // En caso la lista este vacia
-    if(this->head == NULL){
-        this->head = newNode;
-        return; // Finaliza la ejecucion del metodo
+template <class T>
+void SimpleLinkedList<T>::insertPos(T data, int pos){
+    // En caso sea una posicion invalida
+    if(pos<0 || pos>this->length) return;
+    if(pos == 0){
+        this->insertHead(data);
+    }else{
+        NodeSLL<T>* temp = this->head;
+        for(int i=0; i<pos; i++){
+            temp = temp->next;
+        }
+        NodeSLL<T>* newNode = new NodeSLL<T>(data, temp->next);
+        temp->next = newNode;
+        this->length++;
     }
+    
+}
 
-    // Cuando hay elementos en la lista
-    NodeSLL<T>* temp = this->head;
-    while(temp->next != NULL){
-        temp = temp->next;
-    }
-    // Ya ubicado en el final, inserto el nuevo nodo
-    temp->next = newNode;
+template <class T>
+void SimpleLinkedList<T>::insertEnd(T data){
+    this->insertPos(data, this->length);
 }
 
 template <class T>
@@ -67,3 +90,36 @@ void SimpleLinkedList<T>::print(){
         temp = temp->next;
     }
 }
+
+template <class T>
+T SimpleLinkedList<T>::getByPos(int pos){
+    if(0<=pos && pos<this->length){
+        NodeSLL<T>* temp = this->head;
+        for(int i=0; i<pos; i++){
+            temp = temp->next;
+        }
+        return temp->data;
+    }
+}
+
+template <class T>
+int SimpleLinkedList<T>::getLength(){
+    return this->length;
+
+}
+
+template <class T>
+int SimpleLinkedList<T>::search(T d, function<int(T, T)> cmp){
+    NodeSLL<T>* temp = this->head;
+    int pos = 0;
+    while(temp != NULL){
+        if(cmp(temp->data, d) == 0){ // Comparacion por criterio lambda
+            return pos;
+        }
+        temp = temp->next;
+        pos++;
+    }
+    return -1;
+}
+
+
