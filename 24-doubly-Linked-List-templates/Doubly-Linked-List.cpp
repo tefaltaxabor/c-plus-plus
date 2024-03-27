@@ -1,4 +1,3 @@
-
 // NodeDLL implementacion
 
 template <class T>
@@ -7,7 +6,7 @@ NodeDLL<T>::NodeDLL(T data){
 }
 
 template <class T>
-T NodeDLL<T>::getData(){
+NodeDLL<T>::getData(){
     return this->data;
 }
 
@@ -63,7 +62,7 @@ void DoublyLinkedList<T>::insertAsTail(T data){
 }
 
 template <class T>
-void DoublyLinkedList<T>::insertAsHead(T data){
+void DoublyLinkedList<T>::insertAsHead(){
     NodeDLL<T>* newNode = new NodeDLL<T>(data); // prev y next NULL
     if(this->head == NULL){
         this->head = newNode;
@@ -77,26 +76,6 @@ void DoublyLinkedList<T>::insertAsHead(T data){
     }
 }  
 
-template <class T>
-void DoublyLinkedList<T>::insertPos(T data, int pos){
-    // En caso sea una posicion invalida
-    if(pos<0 || pos>this->length) return;
-    if(pos == 0){
-        this->insertAsHead(data);
-    }else{
-        NodeDLL<T>* temp = this->head;
-        for(int i=0; i<pos; i++){
-            temp = temp->next;
-        }
-        NodeDLL<T>* newNode = new NodeDLL<T>(data, temp->next);
-        temp->next = newNode;
-        if (newNode->next != NULL) {
-            newNode->next->prev = newNode; 
-        }
-        this->length++;
-    }
-    
-}
 
 template <class T>
 T DoublyLinkedList<T>::getByPos(int pos){

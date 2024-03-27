@@ -31,13 +31,19 @@ class SimpleLinkedList{
             
         }
         void ~SimpleLinkedList();
+        // CRUD/Create
         void insertHead(T data);
         void insertPos(T data, int pos);
         void insertEnd(T data);
+        // CRUD/Read
         T getByPos(int pos);
         void print();
         int getLength();
         int search(T d, function<int(T, T)> cmp);
+        // CRUD/Update
+        void update(T data, int pos);
+        // CRUD/Delete
+        void deleteByPos(int pos);
         //void delete();
 };
 

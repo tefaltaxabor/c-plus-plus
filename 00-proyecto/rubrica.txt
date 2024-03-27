@@ -1,0 +1,18 @@
+Se desea gestionar informacion obtenida a partir de un dispositivo IoT
+- Los datos que provee el dispositivo se encuentran en un fichero de texto
+- El formato del fichero de texto es el siguiente:
+usuario,apellido paterno,apellido materno,nombre,dni,estatura,peso,presion sanguinea (mm Hg)
+jorgejesus,Quispe,Villaverde,Jorge Jesus,78945612,1.72,80.5,94
+- Se debe poder interactuar con un menu de opcion:
+MENU
+1) Agregar registro (L/F)
+2) Mostrar registros (L)
+3) Buscar registro (L)
+4) Actualizar registro (L/F)
+5) Eliminar registro (L/F)
+
+datos.txt (10 registros)
+Aplicacion.hpp (Menu)
+Registro.hpp
+SimpleLinkedList.hpp (CRUD)
+..

@@ -1,6 +1,3 @@
-#include <iostream>
-#include <functional>
-using namespace std;
 template <class T>
 class NodeDLL{
     private:
@@ -9,7 +6,7 @@ class NodeDLL{
         NodeDLL<T>* next;
         NodeDLL<T>* prev;
         // Prototipos
-        NodeDLL(T data);   
+        NodeDLL(T data);
         ~NodeDLL();
         T getData();
 };
@@ -28,10 +25,9 @@ class DoublyLinkedList{
         T getTail();
         void insertAsTail(T data);
         void insertAsHead(T data);
-        void insertPos(T data, int pos);
-        T getByPos(int pos);
+        void getByPos(int pos);
         void print();
         void printReverse();
 };
 
-#include "DoublyLinkedList.cpp"
+#include <DoublyLinkedList.cpp>
