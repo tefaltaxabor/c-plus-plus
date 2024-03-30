@@ -30,7 +30,7 @@ class SimpleLinkedList{
             this->length = 0;
             
         }
-        void ~SimpleLinkedList();
+        ~SimpleLinkedList();
         // CRUD/Create
         void insertHead(T data);
         void insertPos(T data, int pos);

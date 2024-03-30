@@ -1,7 +1,7 @@
 template <class T>
-void SimpleLinkedList<T>::~SimpleLinkedList(){
+SimpleLinkedList<T>::~SimpleLinkedList(){
     while(this->head){
-        NodeDLL<T>* next = this->head->next;
+        NodeSLL<T>* next = this->head->next;
         delete this->head;
         this->length--;
         this->head = next;
@@ -86,46 +86,4 @@ int SimpleLinkedList<T>::search(T d, function<int(T, T)> cmp){
         pos++;
     }
     return -1;
-}
-template <class T>
-void SimpleLinkedList<T>::update(T data, int pos){
-    NodeSLL<T>* temp = this->head;
-    int i = 0;
-    if(0<=pos && pos<=this->length){ // Se valida la posicion
-        while(temp != NULL){
-            if(i == pos){ // Comparacion de posiciones
-                temp->data = data;
-                return; // Termina la ejecucion del metodo
-            }
-            temp = temp->next;
-            i++;
-        }
-    }
-}
-
-template <class T>
-void SimpleLinkedList<T>::deleteByPos(int pos){
-    
-    
-    if(0<=pos && pos<=this->length){ // Se valida la posicion
-        if(pos == 0){
-            NodeSLL<T>* aux = this->head; // Se crea el aux para liberar la memoria luego
-            this->head = this->head->next; // Se actualiza el head
-            delete aux; // Se libera el espacio de memoria reservado para el antiguo head
-        }else{
-            NodeSLL<T>* temp = this->head;
-            int i = 0;
-            while(temp != NULL){
-                if(i == pos-1){ // Nos ubicamos en la posicion pos-1
-                    NodeSLL<T>* aux = temp->next; // Se crea el aux para liberar la memoria luego
-                    temp->next = temp->next->next;
-                    delete aux;
-                    return; // Termina la ejecucion del metodo
-                }
-                temp = temp->next;
-                i++;
-            }
-        }
-        
-    }
 }

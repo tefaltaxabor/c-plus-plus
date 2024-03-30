@@ -22,6 +22,7 @@ class Dato{
             this->genero = genero;
         }
         ~Dato(){}
+        
         void setNombre(string nombre){this->nombre = nombre;}
         void setDni(string dni){this->dni = dni;}
         void setSaldo(double saldo){this->saldo = saldo;}

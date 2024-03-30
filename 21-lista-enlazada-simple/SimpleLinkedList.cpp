@@ -1,7 +1,7 @@
 template <class T>
-void SimpleLinkedList<T>::~SimpleLinkedList(){
+SimpleLinkedList<T>::~SimpleLinkedList(){
     while(this->head){
-        NodeDLL<T>* next = this->head->next;
+        NodeSLL<T>* next = this->head->next;
         delete this->head;
         this->length--;
         this->head = next;

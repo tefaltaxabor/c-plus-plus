@@ -1,0 +1,7 @@
+usuario,apellido paterno,apellido materno,nombre,dni,estatura,peso,presion sanguinea (mm Hg)
+jorgejesus,Quispe,Villaverde,Jorge Jesus,78945612,1.72,80.5,94
+gabrielcabrera,Cabrera,Ocola,Gabriel Martin,71523102,1.72,60,96
+pedrovillanueva,Villanueva,Sanchez,Pedro,Daniel,67754231,1.60,70,86
+camilavillaran,Villaran,Pajuelo,Camila,Belen,76948423,1.60,50,94
+everadcabrera,Cabrera,Leon,Everad,Jose,31061487,1.70,80,94
+rosario,ocola,Ocola,Ayala,Rosario,Violeta,28595244,1.60,56,96
