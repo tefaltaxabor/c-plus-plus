@@ -40,14 +40,15 @@ class Registro{
         ~Registro(){}
 
         void leerFichero(string linea){
+            cout << "Linea: " << linea << endl;
             string usuario;
             string aPaterno;
             string aMaterno;
             string nombres;
             string dni;
-            string estaturaM_str;
-            string pesoKg_str;
-            string presionMmhg_str;
+            double estaturaM; string estaturaM_str;
+            double pesoKg; string pesoKg_str;
+            double presionMmhg; string presionMmhg_str;
             stringstream linea_ss(linea);
             while(getline(linea_ss, usuario, ',')){
                 getline(linea_ss, aPaterno, ',');
@@ -57,14 +58,18 @@ class Registro{
                 getline(linea_ss, estaturaM_str, ',');
                 getline(linea_ss, pesoKg_str, ',');
                 getline(linea_ss, presionMmhg_str);
+                // Casting de tipos
+                estaturaM = stod(estaturaM_str);
+                pesoKg = stod(pesoKg_str);
+                presionMmhg = stod(presionMmhg_str);
                 this->usuario = usuario;
                 this->aPaterno = aPaterno;
                 this->aMaterno = aMaterno;
                 this->nombres = nombres;
                 this->dni = dni;
-                this->estaturaM = stod(estaturaM_str);
-                this->pesoKg = stod(pesoKg_str);
-                this->presionMmhg = stod(presionMmhg_str);
+                this->estaturaM = estaturaM;
+                this->pesoKg = pesoKg;
+                this->presionMmhg = presionMmhg;
             }
         }
         // Leer (desde consola)

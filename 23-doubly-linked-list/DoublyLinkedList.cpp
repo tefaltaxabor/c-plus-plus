@@ -1,4 +1,3 @@
-
 // NodeDLL implementacion
 
 template <class T>
@@ -83,17 +82,20 @@ void DoublyLinkedList<T>::insertPos(T data, int pos){
     if(pos<0 || pos>this->length) return;
     if(pos == 0){
         this->insertAsHead(data);
-    }else{
+        
+    }else if (pos == this->length) {
+        this->insertAsTail(data);
+    }else {
         NodeDLL<T>* temp = this->head;
         for(int i=0; i<pos; i++){
             temp = temp->next;
         }
-        NodeDLL<T>* newNode = new NodeDLL<T>(data, temp->next);
-        temp->next = newNode;
-        if (newNode->next != NULL) {
-            newNode->next->prev = newNode; 
-        }
-        this->length++;
+        NodeDLL<T>* newNode = new NodeDLL<T>(data);
+        newNode->next = temp;
+        newNode->prev = temp->prev;
+        temp->prev->next = newNode;
+        temp->prev = newNode;
+        length++;
     }
     
 }

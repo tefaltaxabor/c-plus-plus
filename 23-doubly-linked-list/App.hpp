@@ -42,10 +42,7 @@ class App{
         }
         void mostrarDLL(){
             cout << "Datos (DLL)" << endl;
-            //this->datosDLL.print();
-            for(int i=0; i<this->datosDLL.getLength(); i++){
-                cout << this->datosDLL.getByPos(i) << endl;
-            }
+            this->datosDLL.print();
         }
         // Lectura
         void leer(){

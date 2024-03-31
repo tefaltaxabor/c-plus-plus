@@ -10,8 +10,9 @@ class NodeDLL{
         NodeDLL<T>* prev;
         // Prototipos
         NodeDLL(T data);   
-        ~NodeDLL();
         T getData();
+        ~NodeDLL();
+        
 };
 
 template <class T>

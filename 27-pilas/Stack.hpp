@@ -23,6 +23,11 @@ class Stack{
         int length; // Tamanho de la pila
         int elements; // Numero de elementos apilados
     public:
+        Stack(){
+            this->head = NULL;
+            this->length = 0;
+            this->elements = 0;
+        }
         Stack(int length){
             this->head = NULL;
             this->length = length;
@@ -43,7 +48,7 @@ class Stack{
             else return false;
         }
         T top(){
-            return this->head;
+            return this->head->data; // se agrega ->data para que devuelva la data de tipo T
         }
         void push(T data){
             if(this->isFull() == false){
