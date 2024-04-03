@@ -47,7 +47,7 @@ class Aplicacion{
                 int posSimbAp = esDeApertura(simbolo);
                 int posSimbCi = esDeCierre(simbolo);
                 if(posSimbAp != -1){ // Es simbolo de apertura
-                    this->stackSimbolos.push(Simbolo(simbolo));
+                    this->stackSimbolos.push(Simbolo(simbolo)); // Apila
                 }else if(posSimbCi != -1){ // simbolo de cierre
                     int posSimbApTop = esDeApertura(this->stackSimbolos.top().s); // /s se agrega para acceder al caracter
                     if(posSimbCi == posSimbApTop){ // Si el simbolo de cierre encuentra en la tapa su correspondiente pero de apertura
@@ -74,7 +74,7 @@ class Aplicacion{
 };
 
 int main(){
-    Aplicacion a("{}(>)(a)[]", "([<{", ")]>}");
+    Aplicacion a("{}(<>)(a)[]", "([<{", ")]>}");
     a.analizar();
     return 0;
 }
