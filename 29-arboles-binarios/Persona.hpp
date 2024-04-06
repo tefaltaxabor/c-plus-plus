@@ -10,6 +10,9 @@ class Persona{
             this->nombre = nombre;
             this->edad = edad;
         }
+        string getNombre(){return this->nombre;}
+        int getEdad(){return this->edad;}
+        
         friend ostream &operator << (ostream &os, Persona p){
             os << p.nombre << ",";
             os << p.edad;

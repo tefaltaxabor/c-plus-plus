@@ -12,6 +12,7 @@ class NodeBST{
             this->data = data;
             this->left = NULL;
             this->rigth = NULL;
+        
         }
         NodeBST(T data, NodeBST<T>* left, NodeBST<T> rigth){
             this->data = data;
@@ -30,16 +31,17 @@ class BinarySearchTree{
     private:
         // Atributos
         NodeBST<T>* root;
+        void (*process)(T); // Puntero a funcion
         // Metodos recursivos
         // Insercion de datos recursiva
-        bool _insert(NodeBST<T>* node, T data, function<int(T, T)> criteria){
+        bool _insert(NodeBST<T>* &node, T data, function<int(T, T)> criteria){
             if(node == NULL){
                 node = new NodeBST<T>(data);
                 node->data = data;
             }else if(criteria(data, node->data) == -1){ //if(data < node->data){ // Si es menor se sigue por izquierda
-                return _insert(node->left, data);
-            }else if(criteria(data, node->data) == 1;) //if(data > node->data){ // Si es mayor se sigue por la derecha
-                return _insert(node->rigth, data);
+                return _insert(node->left, data, criteria);
+            }else if(criteria(data, node->data) == 1){ //if(data > node->data){ // Si es mayor se sigue por la derecha
+                return _insert(node->rigth, data, criteria);
             }else{
                 return false;
             }
@@ -56,7 +58,7 @@ class BinarySearchTree{
                 if(height_left > height_rigth){
                     return height_left;
                 }else{
-                    return height->rigth;
+                    return height_rigth;
                 }
             }  
         }
@@ -71,11 +73,41 @@ class BinarySearchTree{
                 return 1 + quantity_left + quantity_rigth;
             }  
         }
+        void _inOrder(NodeBST<T>* node){
+            if(node == NULL){
+                return;
+            }else{
+                _inOrder(node->left);
+                process(node->data);
+                _inOrder(node->rigth);
+            }
+        }
+         void _preOrder(NodeBST<T>* node){
+            if(node == NULL){
+                return;
+            }else{
+                process(node->data);
+                _preOrder(node->left);
+                _preOrder(node->rigth);
+            }
+        }
+         void _postOrder(NodeBST<T>* node){
+            if(node == NULL){
+                return;
+            }else{
+                _postOrder(node->left);
+                _postOrder(node->rigth);
+                process(node->data);
+            }
+        }
     public:
         BinarySearchTree(){
             this->root = NULL;
         }
-        bool insert(T data, functional<int(T, T)> criteria){
+        void setProcess(void(*functionPointer)(T)){
+            this->process = functionPointer;
+        }
+        bool insert(T data, function<int(T, T)> criteria){
             return _insert(this->root, data, criteria);
         }
         int height(){
@@ -84,4 +116,14 @@ class BinarySearchTree{
         int quantity(){
             return this->_quantity(this->root);
         }
+        void inOrder(){
+            return _inOrder(this->root);
+        }
+        void preOrder(){
+            return _preOrder(this->root);
+        }
+        void postOrder(){
+            return _postOrder(this->root);
+        }
+
 };
