@@ -42,6 +42,19 @@ int main(){
     cout << "Recorrido Post Order: " << endl;
     bst.postOrder();
     cout<< endl;
+    cout << "Busqueda #1" << endl;
+    if(bst.search(Persona("Maria",65),criteriaAge) == true){
+        cout << "Si se encontro la informacion" << endl;
+    }else{
+        cout << "No se encontro la informacion" << endl;
+    }
+    cout << "Busqueda #2" << endl;
+    if(bst.search(Persona("Roberto",60),criteriaAge) == true){
+        cout << "Si se encontro la informacion" << endl;
+    }else{
+        cout << "No se encontro la informacion" << endl;
+    }
+    bst.display();
     return 0;
 }
 

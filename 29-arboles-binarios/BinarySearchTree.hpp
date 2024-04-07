@@ -1,5 +1,5 @@
 #include <functional>
-
+#include <iostream>
 using namespace std;
 
 template <class T>
@@ -100,6 +100,35 @@ class BinarySearchTree{
                 process(node->data);
             }
         }
+        bool _search(NodeBST<T>* &node, T data, function<int(T, T)> criteria){
+            if(node == NULL){ // Nodo hoja
+                return false;
+            }else if(criteria(data, node->data) == 0){ // Se encontro el valor en el nodo actual
+                return true;
+            }else if(criteria(data, node->data) == -1){ //if(data < node->data){ // Si es menor se sigue por izquierda
+                return _search(node->left, data, criteria);
+            }else if(criteria(data, node->data) == 1){ //if(data > node->data){ // Si es mayor se sigue por la derecha
+                return _search(node->rigth, data, criteria);
+            }
+        }
+        void _display(string prefix, NodeBST<T>* node, bool isLeft){
+            if(node != NULL){
+                cout << prefix; // Se muestra el prefijo
+                if(isLeft == true){ // Si es izquierdo
+                    cout << "|--";
+                    cout << node->data << endl; // Se muestra la data
+                    _display(prefix+"|   ", node->rigth, false);
+                    _display(prefix+"|   ", node->left, true);
+                    
+                }else{
+                    cout << "'--";
+                    cout << node->data << endl; // Se muestra la data
+                    _display(prefix+"    ", node->rigth, false);
+                    _display(prefix+"    ", node->left, true);
+                    
+                }
+            }
+        }
     public:
         BinarySearchTree(){
             this->root = NULL;
@@ -109,6 +138,9 @@ class BinarySearchTree{
         }
         bool insert(T data, function<int(T, T)> criteria){
             return _insert(this->root, data, criteria);
+        }
+        bool search(T data, function<int(T, T)> criteria){
+            return _search(this->root, data, criteria);
         }
         int height(){
             return this->_height(this->root);
@@ -125,5 +157,10 @@ class BinarySearchTree{
         void postOrder(){
             return _postOrder(this->root);
         }
-
+        void display(NodeBST<T>* node){
+            _display("", node, false);
+        }
+        void display(){
+            _display("", this->root, false);
+        }
 };
