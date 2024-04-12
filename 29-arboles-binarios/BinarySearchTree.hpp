@@ -119,7 +119,6 @@ class BinarySearchTree{
                     cout << node->data << endl; // Se muestra la data
                     _display(prefix+"|   ", node->rigth, false);
                     _display(prefix+"|   ", node->left, true);
-                    
                 }else{
                     cout << "'--";
                     cout << node->data << endl; // Se muestra la data
