@@ -61,9 +61,6 @@ class App{
         }
         // Escribir
         void escribir(function<bool(Dato)> criterio){
-
-            
-
             string cabecera = "nombre,sexo,saldo";
             ofstream f(this->urlFicheroSalidaH);
             ofstream g(this->urlFicheroSalidaM);

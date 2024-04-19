@@ -22,7 +22,7 @@ void SimpleLinkedList<T>::insertPos(T data, int pos){
     // En caso sea una posicion invalida
     if(pos<0 || pos>this->length) return;
     if(pos == 0){
-        this->insertHead(data);
+        this->insertHead(data); // llamada a la funcion InsertHead
     }else{
         NodeSLL<T>* temp = this->head;
         for(int i=0; i<pos; i++){
@@ -51,9 +51,9 @@ void SimpleLinkedList<T>::print(){
     }
     
     // En caso la lista tenga elementos
-    while(temp != NULL){
+    while(temp != NULL){ // Mientras que el temp->next no sea NULL se seguiran imprimiendo los miembros
         cout << temp->data << endl;
-        temp = temp->next;
+        temp = temp->next; 
     }
 }
 
@@ -61,7 +61,7 @@ template <class T>
 T SimpleLinkedList<T>::getByPos(int pos){
     if(0<=pos && pos<this->length){
         NodeSLL<T>* temp = this->head;
-        for(int i=0; i<pos; i++){
+        for(int i=0; i<pos; i++){ // recorre desde el head hasta el pos insertado, luegpo returna la data(informacion guardada)
             temp = temp->next;
         }
         return temp->data;
