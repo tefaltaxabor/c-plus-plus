@@ -21,9 +21,8 @@ long long int hashFunctionB26(Persona p){
 }
 
 int main(){
-    HashTable<long long int, Persona> ht(12, hashFunctionB26);
+    HashTable<long long int, Persona> ht(15, hashFunctionB26);
     ht.insert(Persona("Jose", 20));
-    ht.insert(Persona("Ana", 15));
     ht.insert(Persona("Pedro", 18));
     ht.insert(Persona("Marcelo", 19));
     ht.insert(Persona("Lucas", 15));

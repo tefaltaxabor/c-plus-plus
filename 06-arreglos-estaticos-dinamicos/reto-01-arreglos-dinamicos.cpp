@@ -127,7 +127,6 @@ void Producto_de_Matrices(int** Matriz_A, int** Matriz_B, int n) {
                 Matriz_D[i][j] += Matriz_A[i][k]*Matriz_B[k][j];
             }
         }  
-        cout << endl;
     }
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < n; j++) {
@@ -147,5 +146,13 @@ int main() {
     Suma_de_Matrices(Matriz_A, Matriz_B, n); // Se pasan los cuatro parámetros requeridos.
     Resta_de_Matrices(Matriz_A, Matriz_B, n );
     Producto_de_Matrices(Matriz_A, Matriz_B , n );
+
+    for(int i = 0; i < n; i++){
+        delete [] Matriz_A[i];
+        delete [] Matriz_B[i]; 
+    }
+
+    delete [] Matriz_A;
+    delete [] Matriz_B;
     return 0;
 }

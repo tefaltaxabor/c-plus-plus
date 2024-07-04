@@ -120,7 +120,7 @@ void SimpleLinkedList<T>::deleteByPos(int pos){
             while(temp != NULL){
                 if(i == pos-1){ // Nos ubicamos en la posicion pos-1
                     NodeSLL<T>* aux = temp->next; // Se crea el aux para liberar la memoria luego
-                    temp->next = temp->next->next;
+                    temp->next = aux->next;
                     delete aux;
                     return; // Termina la ejecucion del metodo
                 }
